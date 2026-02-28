@@ -1,23 +1,51 @@
 ---
 ---
-<footer class="border-t border-white/10 py-12">
+<footer class="border-t border-white/10 py-16">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-      <div>
+    <div class="grid md:grid-cols-4 gap-12 mb-12">
+      <div class="md:col-span-1">
         <a href="/" class="text-xl font-bold">
           Sarasota<span class="gradient-text">Consulting</span>
         </a>
-        <p class="text-gray-500 text-sm mt-1">AI-Powered Business Automation</p>
+        <p class="text-gray-500 text-sm mt-2">AI-Powered Business Automation</p>
+        <p class="text-gray-600 text-xs mt-1">Serving Sarasota since 2012</p>
       </div>
 
-      <div class="flex items-center gap-6 text-sm text-gray-500">
-        <a href="#services" class="hover:text-white transition-colors">Services</a>
-        <a href="#process" class="hover:text-white transition-colors">Process</a>
-        <a href="#results" class="hover:text-white transition-colors">Results</a>
-        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+      <div>
+        <h4 class="font-semibold text-sm uppercase tracking-wider text-gray-400 mb-4">Services</h4>
+        <ul class="space-y-2 text-sm text-gray-500">
+          <li><a href="/openclaw" class="hover:text-white transition-colors">OpenClaw Platform</a></li>
+          <li><a href="/ai-automation" class="hover:text-white transition-colors">AI Automation</a></li>
+          <li><a href="/#services" class="hover:text-white transition-colors">All Services</a></li>
+        </ul>
       </div>
 
-      <p class="text-gray-600 text-sm">&copy; 2026 SarasotaConsulting. All rights reserved.</p>
+      <div>
+        <h4 class="font-semibold text-sm uppercase tracking-wider text-gray-400 mb-4">Resources</h4>
+        <ul class="space-y-2 text-sm text-gray-500">
+          <li><a href="/case-studies" class="hover:text-white transition-colors">Case Studies</a></li>
+          <li><a href="/#process" class="hover:text-white transition-colors">Our Process</a></li>
+          <li><a href="/#contact" class="hover:text-white transition-colors">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-sm uppercase tracking-wider text-gray-400 mb-4">Get in Touch</h4>
+        <ul class="space-y-2 text-sm text-gray-500">
+          <li>
+            <a href="tel:+19415862954" class="hover:text-white transition-colors">(941) 586-2954</a>
+          </li>
+          <li>
+            <a href="mailto:info@sarasotaconsulting.com" class="hover:text-white transition-colors">info@sarasotaconsulting.com</a>
+          </li>
+          <li class="text-gray-600">Sarasota, FL</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-gray-600 text-sm">&copy; 2012&ndash;2026 Euler's Identity, LLC. All rights reserved.</p>
+      <p class="text-gray-700 text-xs">Sarasota Consulting is a trade name of Euler's Identity, LLC</p>
     </div>
   </div>
 </footer>

@@ -1,0 +1,210 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const title = "Case Studies — AI Automation Success Stories | Sarasota Consulting";
+const description = "Real-world case studies showing how Sarasota businesses transformed their operations with AI automation. From robot dog security patrols to automated accounting systems.";
+const keywords = "AI case studies, business automation examples, robot dog security, AI perimeter security, automated accounting, document management AI, factory automation, Sarasota business success stories, AI ROI, process automation results";
+
+const caseStudies = [
+  {
+    tag: "Security & AI Robotics",
+    title: "Autonomous Robot Dogs for Perimeter Security",
+    challenge: "A large commercial property in the Sarasota area needed 24/7 perimeter security but faced mounting costs with traditional security guard services — over $180,000 annually. Coverage gaps during shift changes and human fatigue led to multiple unauthorized access incidents.",
+    solution: "We deployed a fleet of AI-powered robot dogs equipped with thermal cameras, LiDAR, and real-time anomaly detection. Each unit autonomously patrols designated zones, identifies threats, and alerts a central monitoring dashboard. The AI learns normal activity patterns and flags deviations — a person lingering near a fence at 3 AM, an unfamiliar vehicle in a restricted area, or changes in environmental conditions.",
+    results: [
+      "70% reduction in security costs vs. traditional guard services",
+      "24/7 continuous coverage with zero fatigue or shift gaps",
+      "98% threat detection accuracy with near-zero false positives",
+      "Real-time alerts with HD video to security team's phones",
+      "Complete patrol logs and audit trails for compliance"
+    ],
+    quote: "The robot dogs don't take breaks, don't get tired, and don't miss anything. We went from 3 security incidents per month to zero in the first quarter.",
+    industry: "Commercial Property Management"
+  },
+  {
+    tag: "Financial Services",
+    title: "From 3-Person Office to Sarasota's Largest Accounting Firm",
+    challenge: "A small accounting practice with three employees was drowning in manual data entry, paper-based filing, and inefficient client communication. Tax season meant 80-hour weeks, and growth seemed impossible without proportionally growing staff.",
+    solution: "We built an integrated automation suite: AI-powered document scanning and data extraction from client receipts and statements, automated categorization into accounting software, intelligent client portals for document upload, and automated tax preparation workflows that pre-populate returns from historical and current-year data.",
+    results: [
+      "Grew from 3 employees to Sarasota's largest accounting firm",
+      "Tax return preparation time reduced by 60%",
+      "Client onboarding automated — from days to hours",
+      "99.7% accuracy in automated data entry",
+      "Paperless operations across all client accounts"
+    ],
+    quote: "We started with SarasotaConsulting when we were three people in a tiny office. Eventually we grew into one of Sarasota's largest accounting firms and all the IT and software consulting was provided by our friends at SarasotaConsulting.",
+    industry: "Accounting & Financial Services"
+  },
+  {
+    tag: "Industrial IoT",
+    title: "Real-Time Factory Monitoring with Sensor AI",
+    challenge: "A manufacturing facility needed real-time visibility into equipment performance across their plant floor. Critical data was being collected manually — operators walking the floor with clipboards, recording vibration readings and temperature gauges. Equipment failures were reactive, not predictive, costing tens of thousands in unplanned downtime.",
+    solution: "We deployed IoT sensors across all critical equipment, feeding data into an AI-powered monitoring platform. The system performs continuous vibration analysis, temperature tracking, and anomaly detection. Machine learning models predict equipment failures days before they occur, and automated alerts trigger maintenance workflows.",
+    results: [
+      "85% reduction in unplanned equipment downtime",
+      "Predictive maintenance alerts 3-5 days before failure",
+      "Real-time dashboards accessible from any device",
+      "Automated compliance reporting with one click",
+      "ROI achieved within 4 months of deployment"
+    ],
+    quote: "Beautiful charts, reports with the click of one button — the whole package. Now we can lean back and keep track of our plant while eating at a restaurant.",
+    industry: "Manufacturing & Industrial"
+  },
+  {
+    tag: "Document Management",
+    title: "AI-Powered Document Retrieval System",
+    challenge: "A legal services firm had decades of physical and digital documents scattered across filing cabinets, shared drives, and email inboxes. Finding a specific document could take hours. Important files were frequently misfiled or lost entirely, leading to compliance risks and wasted billable hours.",
+    solution: "We built an AI-powered document management system that scanned, OCR'd, and intelligently categorized their entire document archive. Natural language search lets staff find any document by describing what they need: 'the Smith contract from 2019 about the downtown property.' The AI understands context, corrects fuzzy queries, and learns from user behavior.",
+    results: [
+      "Document retrieval time reduced from hours to seconds",
+      "100% of physical archive digitized and searchable",
+      "AI categorization with 95% accuracy on first pass",
+      "Eliminated misfiling and lost document incidents",
+      "Recovered an estimated 15 billable hours per week per employee"
+    ],
+    quote: "Our new document retrieval system saves us so much time and space. We are able to find data and information which was literally buried before.",
+    industry: "Legal Services"
+  },
+  {
+    tag: "E-Commerce & Automation",
+    title: "Amazon Automated Seller Engine",
+    challenge: "An e-commerce business selling across multiple Amazon marketplaces was manually managing inventory, repricing, and order fulfillment. With thousands of SKUs, the owner spent 6+ hours daily on repetitive marketplace tasks instead of growing the business.",
+    solution: "We built an automated seller engine that monitors competitor pricing in real-time, dynamically adjusts prices to win the Buy Box, manages inventory across warehouses, and automates order routing and fulfillment notifications. AI analyzes sales velocity to predict reorder points and prevent stockouts.",
+    results: [
+      "Buy Box win rate increased from 34% to 78%",
+      "Daily manual marketplace work reduced from 6 hours to 15 minutes",
+      "Revenue increased 140% within 6 months",
+      "Zero stockouts on top 100 SKUs",
+      "Automated repricing runs 24/7 across all marketplaces"
+    ],
+    quote: "I had this product idea. SarasotaConsulting listened and asked the right questions. 10 months later I was reaping the benefits.",
+    industry: "E-Commerce"
+  },
+  {
+    tag: "Membership & Payments",
+    title: "Automated Membership Platform with Integrated Payments",
+    challenge: "A community organization was managing memberships through spreadsheets and collecting dues via mailed checks. Renewal reminders were sent manually, resulting in a 40% lapse rate. The treasurer spent 20+ hours per month on membership administration alone.",
+    solution: "We built a custom membership platform with automated online registration, integrated payment processing (Stripe), automated renewal reminders, member portals, and event management. AI handles member communications, identifies at-risk members based on engagement patterns, and triggers personalized retention campaigns.",
+    results: [
+      "Membership lapse rate dropped from 40% to 8%",
+      "Dues collection automated — zero manual processing",
+      "Treasurer's administrative time reduced by 90%",
+      "Member satisfaction scores increased by 45%",
+      "Self-service portal eliminated 80% of admin support requests"
+    ],
+    quote: "They did our website, helped us connect to online payment systems and built a membership platform specifically for our needs. Now the system is all automated.",
+    industry: "Non-Profit & Community Organizations"
+  },
+  {
+    tag: "Software Optimization",
+    title: "Legacy Auction Platform Rescue & Optimization",
+    challenge: "A company purchased auction software that couldn't handle their user load. During live auctions, the system would slow to a crawl or crash entirely — right when it mattered most. They'd already invested significantly in the platform and couldn't afford to start over.",
+    solution: "Our team performed deep code analysis, identifying critical bottlenecks in database queries, real-time bid processing, and WebSocket connections. We rewrote the performance-critical paths, implemented caching layers, and added load balancing. AI-powered load testing simulated thousands of concurrent bidders to validate improvements.",
+    results: [
+      "System handles 10x the concurrent users without slowdown",
+      "Page load times reduced from 8 seconds to under 400ms",
+      "Zero crashes during live auctions (previously weekly)",
+      "Saved $200k+ vs. rebuilding from scratch",
+      "Ongoing AI monitoring prevents performance regressions"
+    ],
+    quote: "We never thought anybody else could so quickly improve our product. The in-depth analysis and improvements were exactly what we needed.",
+    industry: "Auction & Marketplace Technology"
+  }
+];
+---
+<Layout title={title} description={description} keywords={keywords} canonicalUrl="/case-studies" ogType="article">
+  <Nav />
+
+  <!-- Hero -->
+  <section class="relative py-32 grid-bg overflow-hidden">
+    <div class="absolute top-1/3 left-1/4 w-96 h-96 bg-accent/15 rounded-full blur-3xl"></div>
+    <div class="relative max-w-7xl mx-auto px-6 text-center">
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-sm text-accent-light mb-8 animate-fade-up">
+        Real Results from Real Businesses
+      </span>
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight tracking-tight animate-fade-up-delay-1">
+        Case <span class="gradient-text">Studies</span>
+      </h1>
+      <p class="mt-6 text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed animate-fade-up-delay-2">
+        Since 2012, we've helped Sarasota businesses transform their operations. Here's how.
+      </p>
+    </div>
+  </section>
+
+  <!-- Case Studies -->
+  <section class="py-24">
+    <div class="max-w-5xl mx-auto px-6 space-y-16">
+      {caseStudies.map((cs, i) => (
+        <article class="glass rounded-3xl overflow-hidden" id={`case-${i + 1}`}>
+          <div class="p-8 md:p-12">
+            <!-- Tag -->
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-accent/20 text-accent-light mb-6">
+              {cs.tag}
+            </span>
+
+            <h2 class="text-3xl sm:text-4xl font-bold">{cs.title}</h2>
+
+            <!-- Challenge -->
+            <div class="mt-8">
+              <h3 class="text-sm font-semibold uppercase tracking-widest text-red-400 mb-3">The Challenge</h3>
+              <p class="text-gray-400 text-lg leading-relaxed">{cs.challenge}</p>
+            </div>
+
+            <!-- Solution -->
+            <div class="mt-8">
+              <h3 class="text-sm font-semibold uppercase tracking-widest text-accent mb-3">Our Solution</h3>
+              <p class="text-gray-400 text-lg leading-relaxed">{cs.solution}</p>
+            </div>
+
+            <!-- Results -->
+            <div class="mt-8">
+              <h3 class="text-sm font-semibold uppercase tracking-widest text-green-400 mb-4">Results</h3>
+              <div class="grid sm:grid-cols-2 gap-3">
+                {cs.results.map((result: string) => (
+                  <div class="flex items-start gap-3 bg-white/5 rounded-xl p-4">
+                    <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="text-gray-300 text-sm">{result}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <!-- Quote -->
+            <div class="mt-8 border-l-4 border-accent/50 pl-6 py-2">
+              <p class="text-gray-300 italic text-lg leading-relaxed">"{cs.quote}"</p>
+              <span class="text-accent text-sm font-semibold mt-2 block">{cs.industry}</span>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-accent/10 via-purple-500/5 to-transparent"></div>
+    <div class="relative max-w-3xl mx-auto px-6 text-center">
+      <h2 class="text-4xl sm:text-5xl font-bold">
+        Your Story <span class="gradient-text">Starts Here</span>
+      </h2>
+      <p class="mt-6 text-xl text-gray-400">
+        Every case study above started with a single conversation. Let's have yours.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/#contact" class="bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all hover:shadow-xl hover:shadow-accent/25">
+          Get Your Free Automation Audit
+        </a>
+        <a href="/openclaw" class="glass hover:bg-white/10 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all">
+          Explore OpenClaw
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

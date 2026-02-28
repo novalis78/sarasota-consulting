@@ -4,26 +4,27 @@ const steps = [
     number: "01",
     title: "We Find Your Pain",
     description: "We dive deep into your daily operations. Where are you losing hours? What tasks make your team groan? We map every bottleneck, every manual process, every missed opportunity.",
-    detail: "Free 30-minute audit"
+    detail: "Free 30-minute audit",
+    icon: `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg>`
   },
   {
     number: "02",
     title: "We Build the Solution",
     description: "Our team designs and deploys custom AI automations tailored to your business. No cookie-cutter solutions — everything is built around how you actually work.",
-    detail: "Typically live in 1-2 weeks"
+    detail: "Typically live in 1-2 weeks",
+    icon: `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.42 15.17l-5.384-5.383M15.75 3.75a3.354 3.354 0 00-3 0L9.06 5.88a3.354 3.354 0 00-1.5 2.598v3.044a3.354 3.354 0 001.5 2.598l3.69 2.13a3.354 3.354 0 003 0l3.69-2.13a3.354 3.354 0 001.5-2.598V8.478a3.354 3.354 0 00-1.5-2.598l-3.69-2.13z"/></svg>`
   },
   {
     number: "03",
     title: "You Reap the Results",
     description: "Watch hours of manual work disappear. Your team focuses on high-value activities while AI handles the rest. We monitor, optimize, and scale as you grow.",
-    detail: "Average 10x ROI"
+    detail: "Average 10x ROI",
+    icon: `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/></svg>`
   }
 ];
 ---
-<section id="process" class="py-24 relative overflow-hidden">
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-px h-full bg-gradient-to-b from-transparent via-accent/30 to-transparent"></div>
-
-  <div class="relative max-w-7xl mx-auto px-6">
+<section id="process" class="py-24 relative">
+  <div class="relative max-w-5xl mx-auto px-6">
     <div class="text-center mb-20">
       <span class="text-accent text-sm font-semibold uppercase tracking-widest">How It Works</span>
       <h2 class="text-4xl sm:text-5xl font-bold mt-4">
@@ -31,22 +32,33 @@ const steps = [
       </h2>
     </div>
 
-    <div class="space-y-24">
-      {steps.map((step, i) => (
-        <div class={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12`}>
-          <div class="flex-1">
-            <span class="text-7xl font-black gradient-text opacity-50">{step.number}</span>
-            <h3 class="text-3xl font-bold mt-2">{step.title}</h3>
-            <p class="text-gray-400 text-lg mt-4 leading-relaxed">{step.description}</p>
-            <span class="inline-block mt-4 text-accent font-semibold text-sm">{step.detail}</span>
-          </div>
-          <div class="flex-1 flex justify-center">
-            <div class="w-64 h-64 glass rounded-3xl flex items-center justify-center animate-float" style={`animation-delay: ${i * 0.5}s`}>
-              <span class="text-8xl font-black gradient-text">{step.number}</span>
+    <div class="relative">
+      <!-- Vertical connector line -->
+      <div class="hidden md:block absolute left-[60px] top-0 bottom-0 w-px bg-gradient-to-b from-accent/50 via-purple-500/50 to-cyan-400/50"></div>
+
+      <div class="space-y-16">
+        {steps.map((step, i) => (
+          <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
+            <!-- Number circle -->
+            <div class="relative flex-shrink-0">
+              <div class="w-[120px] h-[120px] rounded-2xl glass flex flex-col items-center justify-center relative z-10">
+                <span class="text-4xl font-black gradient-text">{step.number}</span>
+                <div class="text-accent mt-1" set:html={step.icon} />
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="flex-1 glass rounded-2xl p-8 hover:bg-white/10 transition-all duration-300">
+              <h3 class="text-2xl font-bold">{step.title}</h3>
+              <p class="text-gray-400 text-lg mt-3 leading-relaxed">{step.description}</p>
+              <span class="inline-flex items-center gap-2 mt-4 text-accent font-semibold text-sm">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd"/></svg>
+                {step.detail}
+              </span>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   </div>
 </section>

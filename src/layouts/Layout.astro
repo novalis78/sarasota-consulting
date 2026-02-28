@@ -4,25 +4,113 @@ import '../styles/global.css'
 interface Props {
   title?: string;
   description?: string;
+  keywords?: string;
+  ogImage?: string;
+  ogType?: string;
+  canonicalUrl?: string;
 }
 
 const {
   title = "Sarasota Consulting | AI-Powered Business Automation",
-  description = "We help Sarasota businesses save time and increase revenue with AI automation, intelligent workflows, and custom software solutions."
+  description = "We help Sarasota businesses save time and increase revenue with AI automation, intelligent workflows, and custom software solutions. 14+ years serving the Sarasota area.",
+  keywords = "AI automation Sarasota, business automation Florida, AI consulting, process automation, OpenClaw, artificial intelligence, workflow automation, Sarasota IT consulting, software solutions, business efficiency, AI agents, machine learning consulting",
+  ogImage = "/og-image.png",
+  ogType = "website",
+  canonicalUrl = "https://sarasotaconsulting.com"
 } = Astro.props;
+
+const siteUrl = "https://sarasotaconsulting.com";
+const fullOgImage = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogImage}`;
+const fullCanonical = canonicalUrl.startsWith("http") ? canonicalUrl : `${siteUrl}${canonicalUrl}`;
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Primary Meta Tags -->
+  <title>{title}</title>
+  <meta name="title" content={title} />
   <meta name="description" content={description} />
-  <meta name="author" content="Sarasota Consulting" />
+  <meta name="keywords" content={keywords} />
+  <meta name="author" content="Sarasota Consulting — Euler's Identity, LLC" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="English" />
+  <meta name="revisit-after" content="7 days" />
+  <link rel="canonical" href={fullCanonical} />
+
+  <!-- Geographic Meta -->
+  <meta name="geo.region" content="US-FL" />
+  <meta name="geo.placename" content="Sarasota" />
+  <meta name="geo.position" content="27.3364;-82.5307" />
+  <meta name="ICBM" content="27.3364, -82.5307" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content={ogType} />
+  <meta property="og:url" content={fullCanonical} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={fullOgImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Sarasota Consulting" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content={fullCanonical} />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={fullOgImage} />
+
+  <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <meta name="theme-color" content="#0f172a" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <title>{title}</title>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Sarasota Consulting",
+    "legalName": "Euler's Identity, LLC",
+    "description": description,
+    "url": siteUrl,
+    "telephone": "+1-941-586-2954",
+    "email": "info@sarasotaconsulting.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sarasota",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 27.3364,
+      "longitude": -82.5307
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Sarasota"
+    },
+    "foundingDate": "2012",
+    "sameAs": [
+      "https://www.facebook.com/sarasotaconsulting/"
+    ],
+    "serviceType": [
+      "AI Automation",
+      "Business Process Automation",
+      "AI Consulting",
+      "Software Development",
+      "IT Consulting"
+    ]
+  })} />
 </head>
 <body class="bg-primary text-white overflow-x-hidden">
   <slot />
