@@ -1,0 +1,52 @@
+---
+const steps = [
+  {
+    number: "01",
+    title: "We Find Your Pain",
+    description: "We dive deep into your daily operations. Where are you losing hours? What tasks make your team groan? We map every bottleneck, every manual process, every missed opportunity.",
+    detail: "Free 30-minute audit"
+  },
+  {
+    number: "02",
+    title: "We Build the Solution",
+    description: "Our team designs and deploys custom AI automations tailored to your business. No cookie-cutter solutions — everything is built around how you actually work.",
+    detail: "Typically live in 1-2 weeks"
+  },
+  {
+    number: "03",
+    title: "You Reap the Results",
+    description: "Watch hours of manual work disappear. Your team focuses on high-value activities while AI handles the rest. We monitor, optimize, and scale as you grow.",
+    detail: "Average 10x ROI"
+  }
+];
+---
+<section id="process" class="py-24 relative overflow-hidden">
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-px h-full bg-gradient-to-b from-transparent via-accent/30 to-transparent"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6">
+    <div class="text-center mb-20">
+      <span class="text-accent text-sm font-semibold uppercase tracking-widest">How It Works</span>
+      <h2 class="text-4xl sm:text-5xl font-bold mt-4">
+        Three Steps to <span class="gradient-text">Freedom</span>
+      </h2>
+    </div>
+
+    <div class="space-y-24">
+      {steps.map((step, i) => (
+        <div class={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12`}>
+          <div class="flex-1">
+            <span class="text-7xl font-black gradient-text opacity-50">{step.number}</span>
+            <h3 class="text-3xl font-bold mt-2">{step.title}</h3>
+            <p class="text-gray-400 text-lg mt-4 leading-relaxed">{step.description}</p>
+            <span class="inline-block mt-4 text-accent font-semibold text-sm">{step.detail}</span>
+          </div>
+          <div class="flex-1 flex justify-center">
+            <div class="w-64 h-64 glass rounded-3xl flex items-center justify-center animate-float" style={`animation-delay: ${i * 0.5}s`}>
+              <span class="text-8xl font-black gradient-text">{step.number}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
