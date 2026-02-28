@@ -13,7 +13,7 @@
     </p>
 
     <div class="mt-12 glass rounded-2xl p-8 md:p-12 max-w-2xl mx-auto">
-      <form action="https://formspree.io/f/placeholder" method="POST" class="space-y-6">
+      <form id="contact-form" class="space-y-6">
         <div class="grid md:grid-cols-2 gap-4">
           <input
             type="text"
@@ -44,12 +44,27 @@
         ></textarea>
         <button
           type="submit"
+          id="submit-btn"
           class="w-full bg-accent hover:bg-accent-dark text-white py-4 rounded-xl text-lg font-bold transition-all hover:shadow-xl hover:shadow-accent/25"
         >
           Get Your Free Automation Audit
         </button>
         <p class="text-sm text-gray-500">No commitment. No spam. Just actionable insights.</p>
       </form>
+
+      <!-- Success message (hidden by default) -->
+      <div id="form-success" class="hidden py-12 text-center">
+        <svg class="w-16 h-16 text-green-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <h3 class="text-2xl font-bold text-white">Message Sent!</h3>
+        <p class="mt-2 text-gray-400">We'll get back to you within 24 hours. Looking forward to helping you automate.</p>
+      </div>
+
+      <!-- Error message (hidden by default) -->
+      <div id="form-error" class="hidden mt-4 bg-red-500/10 border border-red-500/20 rounded-xl p-4">
+        <p class="text-red-400 text-sm">Something went wrong. Please email us directly at info@sarasotaconsulting.com</p>
+      </div>
     </div>
 
     <div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-8 text-gray-400">
@@ -60,3 +75,38 @@
     </div>
   </div>
 </section>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const btn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const successDiv = document.getElementById('form-success') as HTMLDivElement;
+  const errorDiv = document.getElementById('form-error') as HTMLDivElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    errorDiv.classList.add('hidden');
+
+    try {
+      const formData = new FormData(form);
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (res.ok) {
+        form.classList.add('hidden');
+        successDiv.classList.remove('hidden');
+      } else {
+        errorDiv.classList.remove('hidden');
+        btn.disabled = false;
+        btn.textContent = 'Get Your Free Automation Audit';
+      }
+    } catch {
+      errorDiv.classList.remove('hidden');
+      btn.disabled = false;
+      btn.textContent = 'Get Your Free Automation Audit';
+    }
+  });
+</script>
